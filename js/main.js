@@ -11,13 +11,21 @@ let clearBtnEl = document.getElementById("clearbutton");
 let i;
 
 //Event listeners
+
 window.onload = init;
 
-inputTextEl.addEventListener("");
-addToDoBtnEl.addEventListener("click", addTask, false);
-clearBtnEl.addEventListener("click", clearTasks, false);
+inputTextEl.addEventListener("keydown", checkTaskText);
+addToDoBtnEl.addEventListener("click", addTask);
+clearBtnEl.addEventListener("click", clearTasks);
 
 //Functions
+
+
+function init(){
+    console.log("Initierar...");
+}
+
+addToDoBtnEl.disabled = true;
 function addTask(){
     //Add task
 }
@@ -26,8 +34,16 @@ function clearTasks(){
     //Remove tasks
 }
 
+
 function checkTaskText(){
-    //Check if the task length is under 5 characters
+    let textCharacters = inputTextEl.value;
+    if (textCharacters.length <= 5){
+        messageEl.innerHTML = "Texten måste vara minst 5 bokstäver lång.";
+    }
+    else{
+        addToDoBtnEl.disabled = false;
+        messageEl.innerHTML = "";
+    }
 }
 
 function storeTask(){
