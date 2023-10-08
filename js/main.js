@@ -4,21 +4,36 @@ Här lägger du din JavaScript-kod
 "use strict";
 
 // Variables
-let textBar = document.getElementById("newtodo");
-let newBtnEl = document.getElementById("newtodobutton");
-let newSpanEl = document.getElementById("message");
-let toDoListEl = document.getElementById("todolist");
+let inputTextEl = document.getElementById("newtodo");
+let addToDoBtnEl = document.getElementById("newtodobutton");
+let messageEl = document.getElementById("message");
 let clearBtnEl = document.getElementById("clearbutton");
 let i;
 
 //Event listeners
 window.onload = init;
 
+inputTextEl.addEventListener("");
+addToDoBtnEl.addEventListener("click", addTask, false);
+clearBtnEl.addEventListener("click", clearTasks, false);
+
 //Functions
-function addCourse(){
-    //Add courses
+function addTask(){
+    //Add task
 }
 
-function clearCourse(){
-    //Remove courses
+function clearTasks(){
+    //Remove tasks
+}
+
+function checkTaskText(){
+    //Check if the task length is under 5 characters
+}
+
+function storeTask(){
+    // Store the input
+}
+
+function clearStorage(){
+    // Clear all tasks
 }
