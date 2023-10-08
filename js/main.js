@@ -60,6 +60,7 @@ function clearTasks(){
     while (taskList.lastChild) {
         taskList.removeChild(taskList.lastChild);
     }
+    clearStorage();
 }
 
 function storeTask(){
@@ -86,5 +87,6 @@ function loadStorage(){
 
 
 function clearStorage(){
-
+    localStorage.removeItem("tasks");
+    myArr = [];
 }
