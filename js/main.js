@@ -8,26 +8,30 @@ let inputTextEl = document.getElementById("newtodo");
 let addToDoBtnEl = document.getElementById("newtodobutton");
 let messageEl = document.getElementById("message");
 let clearBtnEl = document.getElementById("clearbutton");
+let taskList = document.getElementById("todolist");
 let i;
 
 //Event listeners
 
 window.onload = init;
 
-inputTextEl.addEventListener("keydown", checkTaskText);
 addToDoBtnEl.addEventListener("click", addTask);
-clearBtnEl.addEventListener("click", clearTasks);
+inputTextEl.addEventListener("keydown", checkTaskText);
+
+
 
 //Functions
 
 
 function init(){
-    console.log("Initierar...");
+    addToDoBtnEl.disabled = true;
 }
 
-addToDoBtnEl.disabled = true;
 function addTask(){
-    //Add task
+    let newTaskEl = document.createElement("article");
+    let newTaskText = document.createTextNode(inputTextEl.value);
+    newTaskEl.appendChild(newTaskText);
+    taskList.appendChild(newTaskEl);
 }
 
 function clearTasks(){
@@ -35,7 +39,7 @@ function clearTasks(){
 }
 
 
-function checkTaskText(){
+function checkTaskText() {
     let textCharacters = inputTextEl.value;
     if (textCharacters.length <= 5){
         messageEl.innerHTML = "Texten måste vara minst 5 bokstäver lång.";
