@@ -10,13 +10,14 @@ let messageEl = document.getElementById("message");
 let clearBtnEl = document.getElementById("clearbutton");
 let taskList = document.getElementById("todolist");
 let i;
-
+ 
 //Event listeners
 
 window.onload = init;
 
 addToDoBtnEl.addEventListener("click", addTask);
 inputTextEl.addEventListener("keydown", checkTaskText);
+clearBtnEl.addEventListener("click", clearTasks);
 
 
 
@@ -25,6 +26,7 @@ inputTextEl.addEventListener("keydown", checkTaskText);
 
 function init(){
     addToDoBtnEl.disabled = true;
+    clearBtnEl.disabled = false;
 }
 
 function addTask(){
@@ -35,7 +37,9 @@ function addTask(){
 }
 
 function clearTasks(){
-    //Remove tasks
+    while (taskList.lastChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
 }
 
 
